@@ -10,7 +10,7 @@ const MainPage = () => {
       <Content>
         <TopBar />
         <Categories />
-        <h2>Os principais portais <br/> de notícias em <mark>um só lugar.</mark></h2>
+        <h2>Os  portais <br/> de notícias em <mark>um só lugar.</mark></h2>
         <Highlights />
       </Content>
     </Container>

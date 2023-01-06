@@ -18,7 +18,7 @@ export const GlobalContext = createContext<GlobalContextProps>({
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5"
+    "http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&countries=br&languages=pt&limit=100"
   );
 
   const data = await res.json();

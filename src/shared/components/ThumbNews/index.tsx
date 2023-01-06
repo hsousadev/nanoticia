@@ -8,19 +8,20 @@ interface ThumbNewsProps {
   description: string;
   source: string;
   style: string;
-  thumbnail: string;
-  time: number;
+  image: string;
+  publishedAt: number;
   title: string;
+  url: string;
 }
 
-const ThumbNews= ({ category, description, source, style, thumbnail, time, title }: ThumbNewsProps) => {
+const ThumbNews= ({ category, description, source, style, image, publishedAt, title, url }: ThumbNewsProps) => {
   return <Container style={style}>
-    <Image src={thumbnail} alt="fill"/>
+    <Image src={image} alt="fill"/>
     <div className="info">
       <h4>{source}</h4>
       <h2>{title}</h2>
       <p>{description}</p>
-      <p>{time}</p>
+      <p>{publishedAt}</p>
       <p>{category}</p>
     </div>
   </Container>;
