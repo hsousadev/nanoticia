@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     --GREEN: #65D2AE;
     --LIGHT-GREEN: #E4F4F4;
     --DARK-BLUE: #213249;
+    --GRAY: #828282;
   }
 
   mark {
