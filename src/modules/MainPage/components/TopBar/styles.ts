@@ -16,4 +16,28 @@ export const Container = styled.div`
       color: #828282;
     }
   }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media(max-width: 500px) {
+
+    img {
+      width: 144px;
+      height: 24px;
+    }
+
+    h4 {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .date-temperature {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
 `;

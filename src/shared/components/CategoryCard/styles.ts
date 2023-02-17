@@ -9,6 +9,9 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  width: 8.125rem;
+  height: 8.125rem;
+
   gap: 0.5rem;
   padding: 1.75rem 2.625rem;
   border-radius: 1rem;
@@ -17,10 +20,22 @@ export const Container = styled.div`
 
   p {
     color: var(--DARK-BLUE);
+    white-space: nowrap;
   }
 
   :hover {
     transition: all 0.5s ease-in-out;
     opacity: 50%;
+  }
+
+  @media (max-width: 500px) {
+    gap: 0;
+    padding: 1rem;
+    width: 4rem;
+    height: 4rem;
+
+    p {
+      font-size: 12px;
+    }
   }
 `;

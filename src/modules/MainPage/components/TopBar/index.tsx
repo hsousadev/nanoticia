@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import logo from "../../../../shared/assets/nanoticia-logo.png";
 
 import { Container } from "./styles";
