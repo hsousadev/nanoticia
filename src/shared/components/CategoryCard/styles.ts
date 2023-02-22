@@ -24,8 +24,8 @@ export const Container = styled.div`
   }
 
   :hover {
-    transition: all 0.5s ease-in-out;
-    opacity: 50%;
+    transition: all 0.25s ease-in-out;
+    transform: scale(1.05);
   }
 
   @media (max-width: 500px) {

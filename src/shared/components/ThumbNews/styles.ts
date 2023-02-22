@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ContainerProps {
-  style: string;
+  design: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -9,7 +9,6 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-top: 2rem;
 
   :hover {
     img {
@@ -69,7 +68,7 @@ export const Container = styled.div<ContainerProps>`
   }
 
   ${(props) =>
-    props.style === "highlight" &&
+    props.design === "highlight" &&
     css`
       .thumb-image {
         width: 600px;
@@ -89,14 +88,8 @@ export const Container = styled.div<ContainerProps>`
     `};
 
   ${(props) =>
-    props.style === "vertical" &&
+    props.design === "vertical" &&
     css`
-      :hover {
-        transition: all 0.5s;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--GREEN);
-      }
-
       .thumb-image {
         width: 300px;
         height: 180px;
@@ -116,5 +109,30 @@ export const Container = styled.div<ContainerProps>`
       }
     `};
 
-  ${(props) => props.style === "horizontal" && css``};
+  ${(props) => props.design === "horizontal" && css``};
+
+  @media (max-width: 500px) {
+    .thumb-image {
+      width: 100%;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+
+    .info {
+      p.publishedAt {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
 `;

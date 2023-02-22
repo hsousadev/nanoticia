@@ -13,7 +13,7 @@ const MainPage = () => {
         <h2 className="slogan">
           Os principais portais <br /> de notícias em <mark>um só lugar.</mark>
         </h2>
-        {/* <Highlights /> */}
+        <Highlights />
       </Content>
     </Container>
   );

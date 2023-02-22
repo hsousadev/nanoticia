@@ -7,7 +7,7 @@ interface ThumbNewsProps {
   category?: string;
   description: string;
   source: string;
-  style?: any;
+  design?: any;
   image: string;
   publishedAt: string;
   title: string;
@@ -18,19 +18,19 @@ const ThumbNews = ({
   category,
   description,
   source,
-  style,
+  design,
   image,
   publishedAt,
   title,
   url,
 }: ThumbNewsProps) => {
   return (
-    <Container style={style}>
+    <Container design={design}>
       <div className="thumb-image">
         <img src={image} alt="fill" />
       </div>
       <div className="info">
-        {style === "highlight" && (
+        {design === "highlight" && (
           <>
             <h4>{source}</h4>
             <h2>{title}</h2>
@@ -39,7 +39,7 @@ const ThumbNews = ({
             <p>{category}</p>
           </>
         )}
-        {style === "vertical" && (
+        {design === "vertical" && (
           <>
             <p className="publishedAt">{publishedAt}</p>
             <h4>{title}</h4>
