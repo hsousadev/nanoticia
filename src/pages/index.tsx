@@ -4,6 +4,8 @@ import Head from "next/head";
 
 import MainPage from "../modules/MainPage";
 
+import { getCurrentDate } from "../shared/utils/getCurrentDate"
+
 interface GlobalContextProps {
   greenIconsSize?: number;
   news: any;
@@ -15,8 +17,11 @@ export const GlobalContext = createContext<GlobalContextProps>({
 });
 
 // export async function getStaticProps() {
+
+//   const currentDate = getCurrentDate();
+
 //   const res = await fetch(
-//     "http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&countries=br&languages=pt&limit=100"
+//     `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&countries=br&languages=pt&limit=100&date=${currentDate}`
 //   );
 
 //   const data = await res.json();

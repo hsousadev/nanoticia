@@ -25,6 +25,7 @@ export const Container = styled.div<ContainerProps>`
       transition: all 0.5s;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 
