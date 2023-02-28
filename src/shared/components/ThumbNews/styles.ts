@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 interface ContainerProps {
   design: string;
+  hasImage: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -11,6 +12,13 @@ export const Container = styled.div<ContainerProps>`
   justify-content: flex-start;
 
   :hover {
+    .thumb-image {
+      div {
+        transition: all 0.5s;
+        transform: scale(1.1);
+      }
+    }
+
     img {
       transition: all 0.5s;
       transform: scale(1.1);
@@ -20,6 +28,28 @@ export const Container = styled.div<ContainerProps>`
   .thumb-image {
     border-radius: 1rem;
     overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ${(props) =>
+      !props.hasImage &&
+      css`
+        border: 1px solid #65d2ae;
+      `}
+
+    > div {
+      transition: all 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        margin: 0;
+        color: #65d2ae;
+      }
+    }
 
     img {
       transition: all 0.5s;
@@ -113,6 +143,8 @@ export const Container = styled.div<ContainerProps>`
   ${(props) => props.design === "horizontal" && css``};
 
   @media (max-width: 500px) {
+    width: 100%;
+
     .thumb-image {
       width: 100%;
 

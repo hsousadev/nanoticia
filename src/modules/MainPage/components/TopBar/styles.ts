@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 
   .date-temperature {
@@ -17,13 +17,16 @@ export const Container = styled.div`
     }
   }
 
+  @media (max-width: 720px) {
+    justify-content: space-between;
+  }
+
   @media (max-width: 640px) {
     flex-direction: column;
     gap: 1rem;
   }
 
-  @media(max-width: 500px) {
-
+  @media (max-width: 500px) {
     img {
       width: 144px;
       height: 24px;
