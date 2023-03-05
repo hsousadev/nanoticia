@@ -23,6 +23,20 @@ export const Container = styled.div<ContainerProps>`
       transition: all 0.5s;
       transform: scale(1.1);
     }
+
+    .info {
+      h2 {
+        transition: all 0.4s ease-in-out;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      h4 {
+        transition: all 0.4s ease-in-out;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
   }
 
   .thumb-image {

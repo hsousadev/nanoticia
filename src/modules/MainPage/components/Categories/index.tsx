@@ -8,6 +8,7 @@ import { getCurrentDate } from "../../../../shared/utils/getCurrentDate";
 
 import CategoryCard from "../../../../shared/components/CategoryCard";
 import useWindowSize from "../../../../shared/utils/useWindowSize";
+import scrollToComment from "../../../../shared/utils/smoothScroll";
 
 import { Container } from "./styles";
 
@@ -33,12 +34,19 @@ const Categories = () => {
         <CategoryCard
           icon={<Newspaper weight="thin" size={iconsSize} color={iconColor} />}
           title="Notícias"
+          onClick={() => scrollToComment("news")}
         />
         <CategoryCard
           icon={
             <YoutubeLogo weight="thin" size={iconsSize} color={iconColor} />
           }
           title="Ao vivo"
+          onClick={() =>
+            window.open(
+              "https://www.youtube.com/results?search_query=not%C3%ADcias&sp=EgJAAQ%253D%253D",
+              "_blank"
+            )
+          }
         />
       </div>
       {shouldShowDateAndTemperature && (

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, HTMLAttributes } from "react";
 
 import useWindowSize from "../../utils/useWindowSize";
+import scrollToComment from "../../utils/smoothScroll";
 
 import { Container } from "./styles";
 
-interface CategoryCardProps {
+interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
   icon: any;
   title: string;
 }
@@ -22,8 +23,17 @@ const CategoryCard = ({ icon, title }: CategoryCardProps) => {
     }
   }, [isMobile]);
 
+  function handleClick() {
+    newTitle === "Ao vivo"
+      ? window.open(
+          "https://www.youtube.com/results?search_query=not%C3%ADcias&sp=EgJAAQ%253D%253D",
+          "_blank"
+        )
+      : scrollToComment("noticias");
+  }
+
   return (
-    <Container>
+    <Container onClick={() => handleClick()}>
       {icon}
       <div>
         <p>{newTitle}</p>

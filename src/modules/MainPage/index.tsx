@@ -4,10 +4,11 @@ import TopBar from "./components/TopBar";
 import Categories from "./components/Categories";
 import Highlights from "./components/Highlights";
 import News from "./components/News";
+import Footer from "./components/Footer";
 
 const MainPage = () => {
   return (
-    <Container>
+    <Container id="top">
       <Content>
         <TopBar />
         <Categories />
@@ -16,6 +17,7 @@ const MainPage = () => {
         </h2>
         <Highlights />
         <News />
+        <Footer />
       </Content>
     </Container>
   );

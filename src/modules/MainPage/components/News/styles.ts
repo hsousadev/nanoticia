@@ -23,16 +23,36 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
     button {
+      transition: all 0.4s ease-in-out;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
 
       h4 {
+        transition: all 0.4s ease-in-out;
         color: var(--GREEN);
+      }
+
+      svg {
+        transition: all 0.4s ease-in-out;
+      }
+    }
+
+    button:hover {
+      transition: all 0.4s ease-in-out;
+
+      h4 {
+        transition: all 0.4s ease-in-out;
+        border-bottom: 1px solid var(--GREEN);
+      }
+
+      svg {
+        transition: all 0.4s ease-in-out;
+        transform: rotate(180deg);
       }
     }
   }

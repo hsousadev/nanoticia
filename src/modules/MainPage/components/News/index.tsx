@@ -1,5 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Newspaper, ArrowCircleDown, ArrowCircleUp } from "phosphor-react";
+import {
+  Newspaper,
+  ArrowCircleDown,
+  ArrowCircleUp,
+  ArrowDown,
+  ArrowUp,
+  PlusCircle,
+  MinusCircle,
+} from "phosphor-react";
 import { GlobalContext } from "../../../../pages/index";
 
 import SectionTitle from "../../../../shared/components/SectionTitle";
@@ -37,7 +45,7 @@ const News = () => {
   const secondHalf = data.slice(31, 60);
 
   return (
-    <Container>
+    <Container id="noticias">
       <SectionTitle
         icon={<Newspaper weight="thin" size={40} color="#65D2AE" />}
         title="Mais notícias"
@@ -78,12 +86,12 @@ const News = () => {
           {!showSecondHalf ? (
             <>
               <h4>Ver mais notícias</h4>
-              <ArrowCircleDown weight="thin" size={40} color="#65D2AE" />
+              <PlusCircle weight="thin" size={28} color="#65D2AE" />
             </>
           ) : (
             <>
               <h4>Ver menos notícias</h4>
-              <ArrowCircleUp weight="thin" size={40} color="#65D2AE" />
+              <MinusCircle weight="thin" size={28} color="#65D2AE" />
             </>
           )}
         </button>

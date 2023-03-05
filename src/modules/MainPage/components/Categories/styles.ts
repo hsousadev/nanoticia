@@ -19,7 +19,7 @@ export const Container = styled.div`
 
   .date-temperature {
     h2 {
-      margin: 0 0 1rem 0;
+      margin: 0;
       color: var(--GRAY);
       text-align: right;
     }
