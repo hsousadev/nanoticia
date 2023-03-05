@@ -44,11 +44,6 @@ export const Container = styled.div<ContainerProps>`
       display: flex;
       align-items: center;
       justify-content: center;
-
-      h4 {
-        margin: 0;
-        color: #65d2ae;
-      }
     }
 
     img {
@@ -62,6 +57,22 @@ export const Container = styled.div<ContainerProps>`
   .info {
     width: 100%;
     max-width: 300px;
+
+    .category {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+
+      p {
+        margin: 0;
+      }
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
 
     h2 {
       margin-bottom: 1.5rem;
@@ -140,7 +151,45 @@ export const Container = styled.div<ContainerProps>`
       }
     `};
 
-  ${(props) => props.design === "horizontal" && css``};
+  ${(props) =>
+    props.design === "horizontal" &&
+    css`
+      gap: 2rem;
+
+      .info {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 180px;
+      }
+
+      h4 {
+        margin-bottom: 1rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      .thumb-image {
+        width: 300px;
+        height: 180px;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          gap: 1rem;
+        }
+      }
+    `};
 
   @media (max-width: 500px) {
     width: 100%;

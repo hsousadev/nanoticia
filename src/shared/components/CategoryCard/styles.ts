@@ -28,6 +28,54 @@ export const Container = styled.div`
     transform: scale(1.05);
   }
 
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .pulse {
+      margin-top: 4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cc472c;
+      cursor: pointer;
+      box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+      animation: pulse 2s infinite;
+    }
+    .pulse:hover {
+      animation: none;
+    }
+
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+      }
+      70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+      }
+      100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+      }
+    }
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+      }
+      70% {
+        -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+        box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+      }
+      100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+      }
+    }
+  }
+
   @media (max-width: 500px) {
     gap: 0;
     padding: 1rem;
@@ -36,6 +84,14 @@ export const Container = styled.div`
 
     p {
       font-size: 12px;
+    }
+
+    div {
+      gap: 0.25rem;
+
+      .pulse {
+        margin-top: 2px;
+      }
     }
   }
 `;

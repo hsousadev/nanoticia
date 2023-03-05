@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Sparkle } from "phosphor-react";
 
 import { GlobalContext } from "../../../../pages/index";
@@ -12,17 +12,11 @@ import { Container } from "./styles";
 
 const Highlights = () => {
   // const { news } = useContext(GlobalContext);
+
+  const news = data;
+
   const windowSize = useWindowSize();
   const isHighlightToResize = windowSize.windowWidth <= 1045;
-  const newsWithImages = [];
-
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].image) {
-      newsWithImages.push(data[i]);
-    }
-  }
-
-  const firstNews = newsWithImages.slice(0, 5);
 
   return (
     <Container>
@@ -33,30 +27,30 @@ const Highlights = () => {
       <div className="highlight">
         {!isHighlightToResize && (
           <ThumbNews
-            category={firstNews[0].category}
-            description={firstNews[0].description}
-            source={firstNews[0].source}
+            category={news[0].category}
+            description={news[0].description}
+            source={news[0].source}
             design="highlight"
-            image={firstNews[0].image}
-            publishedAt={firstNews[0].published_at}
-            title={firstNews[0].title}
-            url={firstNews[0].url}
+            image={news[0].image}
+            publishedAt={news[0].published_at}
+            title={news[0].title}
+            url={news[0].url}
           />
         )}
         <div className="secondary-highlights">
           {isHighlightToResize && (
             <ThumbNews
-              category={firstNews[0].category}
-              description={firstNews[0].description}
-              source={firstNews[0].source}
+              category={news[0].category}
+              description={news[0].description}
+              source={news[0].source}
               design="vertical"
-              image={firstNews[0].image}
-              publishedAt={firstNews[0].published_at}
-              title={firstNews[0].title}
-              url={firstNews[0].url}
+              image={news[0].image}
+              publishedAt={news[0].published_at}
+              title={news[0].title}
+              url={news[0].url}
             />
           )}
-          {firstNews.slice(1, 5).map((news, index) => (
+          {news.slice(1, 5).map((news: any, index: number) => (
             <ThumbNews
               key={index}
               category={news.category}

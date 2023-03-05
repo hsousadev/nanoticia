@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import Moment from "react-moment";
+import * as moment from "moment";
+import "moment/locale/pt-br";
 
 import { Newspaper, YoutubeLogo } from "phosphor-react";
+import { getCurrentDate } from "../../../../shared/utils/getCurrentDate";
 
 import CategoryCard from "../../../../shared/components/CategoryCard";
 import useWindowSize from "../../../../shared/utils/useWindowSize";
@@ -8,6 +12,9 @@ import useWindowSize from "../../../../shared/utils/useWindowSize";
 import { Container } from "./styles";
 
 const Categories = () => {
+  moment.locale("pt-br");
+  const currentDate = getCurrentDate();
+
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 500;
   const shouldShowDateAndTemperature = windowSize.windowWidth > 720;
@@ -25,7 +32,7 @@ const Categories = () => {
       <div className="categories-card">
         <CategoryCard
           icon={<Newspaper weight="thin" size={iconsSize} color={iconColor} />}
-          title="News"
+          title="Notícias"
         />
         <CategoryCard
           icon={
@@ -36,10 +43,10 @@ const Categories = () => {
       </div>
       {shouldShowDateAndTemperature && (
         <div className="date-temperature">
+          <h3>Hoje é</h3>
           <h2>
-            Terça-feira, <br /> 1 Nov, 2022
+            <Moment format="D MMM YYYY">{currentDate}</Moment>
           </h2>
-          <h3>São Paulo, 18ºC</h3>
         </div>
       )}
     </Container>

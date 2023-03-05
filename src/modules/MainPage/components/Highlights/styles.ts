@@ -8,7 +8,7 @@ export const Container = styled.div`
 
   width: 100%;
   padding: 2.5rem 0 4rem 0;
-  border-top: 1px solid #d9d9d9;
+  border-top: 1px solid var(--LIGHT-GRAY);
 
   .highlight {
     display: flex;
@@ -38,7 +38,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 1045px) {
     .highlight {
       .secondary-highlights {
         justify-content: center;

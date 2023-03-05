@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     --LIGHT-GREEN: #E4F4F4;
     --DARK-BLUE: #213249;
     --GRAY: #828282;
+    --LIGHT-GRAY: #d9d9d9;
   }
 
   mark {
@@ -61,6 +62,14 @@ export const GlobalStyles = createGlobalStyle`
   p {
     font-weight: 400;
     font-size: 14px;
+  }
+
+  button {
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    border: none;
+    background: transparent;
   }
   
 `;

@@ -25,7 +25,10 @@ const CategoryCard = ({ icon, title }: CategoryCardProps) => {
   return (
     <Container>
       {icon}
-      <p>{newTitle}</p>
+      <div>
+        <p>{newTitle}</p>
+        {newTitle == "Ao vivo" && <span className="pulse"></span>}
+      </div>
     </Container>
   );
 };

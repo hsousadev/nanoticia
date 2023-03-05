@@ -4,7 +4,7 @@ export const Container = styled.div`
   transition: all 0.5s ease-in-out;
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 
   width: 100%;

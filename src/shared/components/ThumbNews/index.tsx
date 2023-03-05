@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Moment from "react-moment";
+import * as moment from "moment";
+import "moment/locale/pt-br";
 
 import {
   Newspaper,
@@ -9,7 +11,6 @@ import {
   Briefcase,
   Heartbeat,
   Atom,
-  YoutubeLogo,
 } from "phosphor-react";
 
 import { Container } from "./styles";
@@ -35,8 +36,8 @@ const ThumbNews = ({
   title,
   url,
 }: ThumbNewsProps) => {
+  moment.locale("pt-br");
   const iconsColor = "#65D2AE";
-
   const icons = [
     {
       name: "general",
@@ -69,6 +70,50 @@ const ThumbNews = ({
   ];
 
   const [hasImage, setHasImage] = useState(false);
+  const [newCategory, setNewCategory] = useState("");
+
+  const categories = [
+    {
+      type: "general",
+      name: "Mundo",
+    },
+    {
+      type: "sports",
+      name: "Esportes",
+    },
+    {
+      type: "sports",
+      name: "Esportes",
+    },
+    {
+      type: "technology",
+      name: "Tecnologia",
+    },
+    {
+      type: "entertainment",
+      name: "Entreterimento",
+    },
+    {
+      type: "business",
+      name: "Negócios",
+    },
+    {
+      type: "health",
+      name: "Saúde",
+    },
+    {
+      type: "science",
+      name: "Ciências",
+    },
+  ];
+
+  useEffect(() => {
+    for (let x in categories) {
+      if (categories[x].type === category) {
+        setNewCategory(categories[x].name);
+      }
+    }
+  }, [category]);
 
   useEffect(() => {
     if (image?.length) setHasImage(true);
@@ -86,11 +131,7 @@ const ThumbNews = ({
         ) : (
           icons.map(
             (icon, index) =>
-              icon.name === category && (
-                <div key={index}>
-                  {icon.image} <h4>{source}</h4>
-                </div>
-              )
+              icon.name === category && <div key={index}>{icon.image}</div>
           )
         )}
       </div>
@@ -122,6 +163,26 @@ const ThumbNews = ({
             </p>
             <h4>{title}</h4>
             <p>{source}</p>
+          </>
+        )}
+        {design === "horizontal" && (
+          <>
+            <div>
+              <p className="publishedAt">
+                <Moment fromNow ago>
+                  {publishedAt}
+                </Moment>
+              </p>
+              <h4>{title}</h4>
+              <p>{source}</p>
+            </div>
+            <div className="category">
+              <p>{newCategory}</p>
+              {icons.map(
+                (icon, index) =>
+                  icon.name === category && <div key={index}>{icon.image}</div>
+              )}
+            </div>
           </>
         )}
       </div>
