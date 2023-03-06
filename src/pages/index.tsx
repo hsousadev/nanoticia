@@ -16,37 +16,37 @@ export const GlobalContext = createContext<GlobalContextProps>({
   news: [],
 });
 
-// export async function getStaticProps() {
-//   const currentDate = getCurrentDate();
+export async function getStaticProps() {
+  const currentDate = getCurrentDate();
 
-//   const res = await fetch(
-//     `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&sort=published_desc&countries=br&languages=pt&limit=5&date=${currentDate}`
-//   );
+  const res = await fetch(
+    `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&sort=published_desc&countries=br&languages=pt&limit=5&date=${currentDate}`
+  );
 
-//   const data = await res.json();
-//   const news = data.data;
+  const data = await res.json();
+  const news = data.data;
 
-//   for (let i = 0; i < news.length; i++) {
-//     if (!news[i].image) {
-//       const response = await fetch(
-//         `http://api.linkpreview.net/?key=b38036e059258735225c9fc893a5ff77&q=${news[i].url}`
-//       );
-//       const newImage = await response.json();
+  for (let i = 0; i < news.length; i++) {
+    if (!news[i].image) {
+      const response = await fetch(
+        `http://api.linkpreview.net/?key=b38036e059258735225c9fc893a5ff77&q=${news[i].url}`
+      );
+      const newImage = await response.json();
 
-//       if (newImage.image) {
-//         news[i].image = newImage.image;
-//       }
-//     }
-//   }
+      if (newImage.image) {
+        news[i].image = newImage.image;
+      }
+    }
+  }
 
-//   return {
-//     props: {
-//       news,
-//     },
+  return {
+    props: {
+      news,
+    },
 
-//     revalidate: 2 * 3600, // a cada 2 horas
-//   };
-// }
+    revalidate: 2 * 3600, // a cada 2 horas
+  };
+}
 
 export default function Home({ news }: any) {
   return (

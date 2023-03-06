@@ -11,9 +11,9 @@ import useWindowSize from "../../../../shared/utils/useWindowSize";
 import { Container } from "./styles";
 
 const Highlights = () => {
-  // const { news } = useContext(GlobalContext);
+  const { news } = useContext(GlobalContext);
 
-  const news = data;
+  // const news = data;
 
   const windowSize = useWindowSize();
   const isHighlightToResize = windowSize.windowWidth <= 1045;

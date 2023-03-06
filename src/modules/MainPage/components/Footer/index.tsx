@@ -27,7 +27,11 @@ const Footer = () => {
           <CodeSimple weight="bold" size={24} color="#828282" />
           Desenvolvido por{" "}
           <strong>
-            <a href="https://henriquesousadev.vercel.app" target="_blank">
+            <a
+              href="https://henriquesousadev.vercel.app"
+              target="_blank"
+              rel="noopener"
+            >
               Henrique Sousa
             </a>
           </strong>

@@ -14,7 +14,7 @@ import SectionTitle from "../../../../shared/components/SectionTitle";
 import ThumbNews from "../../../../shared/components/ThumbNews";
 import useWindowSize from "../../../../shared/utils/useWindowSize";
 
-import { data } from "../../../../shared/mock/newsData";
+// import { data } from "../../../../shared/mock/newsData";
 
 import { Container } from "./styles";
 
@@ -39,7 +39,7 @@ const News = () => {
 
   const [showSecondHalf, setShowSecondHalf] = useState(false);
 
-  // const data = news;
+  const data = news;
 
   const firstHalf = data.slice(5, 30);
   const secondHalf = data.slice(31, 60);
