@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { ArrowUp, CodeSimple } from "phosphor-react";
 
-import logo from "../../../../shared/assets/nanoticia-logo.png";
+import logo from "../../../../shared/assets/nanoticia-logo.svg";
 
 import { Container } from "./styles";
 import smoothScroll from "../../../../shared/utils/smoothScroll";
@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <Container>
       <div className="logo-and-return-top">
-        <Image src={logo} alt="" />
+        <Image src={logo} alt="" width={128} />
 
         <div className="return-top">
           <button onClick={() => smoothScroll("top")}>

@@ -226,6 +226,8 @@ export const Container = styled.div<ContainerProps>`
     }
 
     .info {
+      max-width: 100%;
+
       p.publishedAt {
         margin-bottom: 0.25rem;
       }

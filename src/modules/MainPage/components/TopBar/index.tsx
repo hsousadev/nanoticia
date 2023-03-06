@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import * as moment from "moment";
 import "moment/locale/pt-br";
 
-import logo from "../../../../shared/assets/nanoticia-logo.png";
+import logo from "../../../../shared/assets/nanoticia-logo.svg";
 
 import { getCurrentDate } from "../../../../shared/utils/getCurrentDate";
 
@@ -20,7 +20,7 @@ const TopBar = () => {
 
   return (
     <Container>
-      <Image src={logo} alt="logo" />
+      <Image src={logo} width={200} alt="logo" />
       {isMobile && (
         <div className="date-temperature">
           <h4>Hoje é</h4>

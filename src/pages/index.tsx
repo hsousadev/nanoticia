@@ -54,7 +54,7 @@ export default function Home({ news }: any) {
       <Head>
         <title>nanoticia</title>
         <meta name="title" content="nanoticia" />
-        <link rel="icon" href="/nanoticia-favicon.png" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <GlobalContext.Provider value={{ news }}>

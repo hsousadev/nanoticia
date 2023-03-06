@@ -156,13 +156,22 @@ const ThumbNews = ({
         )}
         {design === "vertical" && (
           <>
-            <p className="publishedAt">
-              <Moment fromNow ago>
-                {publishedAt}
-              </Moment>
-            </p>
-            <h4>{title}</h4>
-            <p>{source}</p>
+            <div>
+              <p className="publishedAt">
+                <Moment fromNow ago>
+                  {publishedAt}
+                </Moment>
+              </p>
+              <h4>{title}</h4>
+              <p>{source}</p>
+            </div>
+            <div className="category">
+              <p>{newCategory}</p>
+              {icons.map(
+                (icon, index) =>
+                  icon.name === category && <div key={index}>{icon.image}</div>
+              )}
+            </div>
           </>
         )}
         {design === "horizontal" && (
