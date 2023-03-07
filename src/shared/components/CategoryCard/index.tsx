@@ -21,7 +21,7 @@ const CategoryCard = ({ icon, title }: CategoryCardProps) => {
     if (isMobile && title.length > 8) {
       setNewTitle(abbreviatedTitle);
     }
-  }, [isMobile]);
+  }, [isMobile, abbreviatedTitle, title]);
 
   function handleClick() {
     newTitle === "Ao vivo"

@@ -1,22 +1,23 @@
 import Image from "next/image";
-import Moment from "react-moment";
-import * as moment from "moment";
-import "moment/locale/pt-br";
 
 import logo from "../../../../shared/assets/nanoticia-logo.svg";
 
-import { getCurrentDate } from "../../../../shared/utils/getCurrentDate";
-
 import useWindowSize from "../../../../shared/utils/useWindowSize";
 
+import { getFormatTodayDate } from "../../../../shared/utils/formatTodayDate";
+
 import { Container } from "./styles";
+import { useEffect, useState } from "react";
 
 const TopBar = () => {
-  moment.locale("pt-br");
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 720;
 
-  const currentDate = getCurrentDate();
+  const [today, setToday] = useState<string>();
+
+  useEffect(() => {
+    setToday(getFormatTodayDate());
+  }, []);
 
   return (
     <Container>
@@ -24,7 +25,7 @@ const TopBar = () => {
       {isMobile && (
         <div className="date-temperature">
           <h4>Hoje é</h4>
-          <Moment format="D MMM YYYY">{currentDate}</Moment>
+          {today}
         </div>
       )}
     </Container>

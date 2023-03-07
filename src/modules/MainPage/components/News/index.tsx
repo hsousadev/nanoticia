@@ -1,13 +1,5 @@
 import React, { useContext, useState } from "react";
-import {
-  Newspaper,
-  ArrowCircleDown,
-  ArrowCircleUp,
-  ArrowDown,
-  ArrowUp,
-  PlusCircle,
-  MinusCircle,
-} from "phosphor-react";
+import { Newspaper, PlusCircle, MinusCircle } from "phosphor-react";
 import { GlobalContext } from "../../../../pages/index";
 
 import SectionTitle from "../../../../shared/components/SectionTitle";
@@ -17,19 +9,6 @@ import useWindowSize from "../../../../shared/utils/useWindowSize";
 // import { data } from "../../../../shared/mock/newsData";
 
 import { Container } from "./styles";
-
-// interface newsProps {
-//   author: string;
-//   title: string;
-//   description: string;
-//   url: string;
-//   source: string;
-//   image: string;
-//   category: string;
-//   language: string;
-//   country: string;
-//   published_at: string;
-// }
 
 const News = () => {
   const { news } = useContext(GlobalContext);

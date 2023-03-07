@@ -20,7 +20,7 @@ export async function getStaticProps() {
   const currentDate = getCurrentDate();
 
   const res = await fetch(
-    `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&sort=published_desc&countries=br&languages=pt&limit=5&date=${currentDate}`
+    `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&sort=published_desc&countries=br&languages=pt&limit=60&date=${currentDate}`
   );
 
   const data = await res.json();
@@ -54,7 +54,7 @@ export default function Home({ news }: any) {
       <Head>
         <title>nanoticia</title>
         <meta name="title" content="nanoticia" />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" type="shortcut icon" href="/favicon.svg" />
       </Head>
 
       <GlobalContext.Provider value={{ news }}>

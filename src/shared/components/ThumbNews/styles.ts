@@ -146,6 +146,16 @@ export const Container = styled.div<ContainerProps>`
   ${(props) =>
     props.design === "vertical" &&
     css`
+      @media (min-width: 500px) {
+        .info {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          flex-direction: column;
+          height: 180px;
+        }
+      }
+
       .thumb-image {
         width: 300px;
         height: 180px;

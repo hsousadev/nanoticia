@@ -1,30 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Moment from "react-moment";
-import * as moment from "moment";
-import "moment/locale/pt-br";
 
-import {
-  Newspaper,
-  SoccerBall,
-  Laptop,
-  PlayCircle,
-  Briefcase,
-  Heartbeat,
-  Atom,
-} from "phosphor-react";
+import { ThumbNewsProps } from "./interface";
+import { icons } from "./components/Icons";
+import { categories } from "./components/Categories";
 
 import { Container } from "./styles";
-
-interface ThumbNewsProps {
-  category?: string;
-  description: string;
-  source: string;
-  design?: any;
-  image: string | null;
-  publishedAt: string;
-  title: string;
-  url: string;
-}
 
 const ThumbNews = ({
   category,
@@ -36,88 +16,26 @@ const ThumbNews = ({
   title,
   url,
 }: ThumbNewsProps) => {
-  moment.locale("pt-br");
-  const iconsColor = "#65D2AE";
-  const icons = [
-    {
-      name: "general",
-      image: <Newspaper weight="thin" size={64} color={iconsColor} />,
-    },
-    {
-      name: "sports",
-      image: <SoccerBall weight="thin" size={64} color={iconsColor} />,
-    },
-    {
-      name: "technology",
-      image: <Laptop weight="thin" size={64} color={iconsColor} />,
-    },
-    {
-      name: "entertainment",
-      image: <PlayCircle weight="thin" size={64} color={iconsColor} />,
-    },
-    {
-      name: "business",
-      image: <Briefcase weight="thin" size={64} color={iconsColor} />,
-    },
-    {
-      name: "health",
-      image: <Heartbeat weight="thin" size={64} color={iconsColor} />,
-    },
-    {
-      name: "science",
-      image: <Atom weight="thin" size={64} color={iconsColor} />,
-    },
-  ];
+  var date = new Date(publishedAt);
+  const hourDate = date.toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   const [hasImage, setHasImage] = useState(false);
   const [newCategory, setNewCategory] = useState("");
 
-  const categories = [
-    {
-      type: "general",
-      name: "Mundo",
-    },
-    {
-      type: "sports",
-      name: "Esportes",
-    },
-    {
-      type: "sports",
-      name: "Esportes",
-    },
-    {
-      type: "technology",
-      name: "Tecnologia",
-    },
-    {
-      type: "entertainment",
-      name: "Entreterimento",
-    },
-    {
-      type: "business",
-      name: "Negócios",
-    },
-    {
-      type: "health",
-      name: "Saúde",
-    },
-    {
-      type: "science",
-      name: "Ciências",
-    },
-  ];
-
   useEffect(() => {
-    for (let x in categories) {
-      if (categories[x].type === category) {
-        setNewCategory(categories[x].name);
+    for (let i in categories) {
+      if (categories[i].type === category) {
+        setNewCategory(categories[i].name);
       }
     }
   }, [category]);
 
   useEffect(() => {
     if (image?.length) setHasImage(true);
-  }, []);
+  }, [image?.length]);
 
   return (
     <Container
@@ -147,21 +65,13 @@ const ThumbNews = ({
                 .replace(/&#8211;/i, "'")
                 .replace(/&#8216;/i, "'")}
             </p>
-            <p className="publishedAt">
-              <Moment fromNow ago>
-                {publishedAt}
-              </Moment>
-            </p>
+            <p className="publishedAt">Hoje às {hourDate} </p>
           </>
         )}
         {design === "vertical" && (
           <>
             <div>
-              <p className="publishedAt">
-                <Moment fromNow ago>
-                  {publishedAt}
-                </Moment>
-              </p>
+              <p className="publishedAt">Hoje às {hourDate} </p>
               <h4>{title}</h4>
               <p>{source}</p>
             </div>
@@ -177,11 +87,7 @@ const ThumbNews = ({
         {design === "horizontal" && (
           <>
             <div>
-              <p className="publishedAt">
-                <Moment fromNow ago>
-                  {publishedAt}
-                </Moment>
-              </p>
+              <p className="publishedAt">Hoje às {hourDate} </p>
               <h4>{title}</h4>
               <p>{source}</p>
             </div>

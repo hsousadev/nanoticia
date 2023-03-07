@@ -30,7 +30,7 @@ const Footer = () => {
             <a
               href="https://henriquesousadev.vercel.app"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               Henrique Sousa
             </a>

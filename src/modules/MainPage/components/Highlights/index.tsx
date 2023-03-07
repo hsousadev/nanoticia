@@ -1,8 +1,8 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Sparkle } from "phosphor-react";
 
 import { GlobalContext } from "../../../../pages/index";
-import { data } from "../../../../shared/mock/newsData";
+// import { data } from "../../../../shared/mock/newsData";
 
 import ThumbNews from "../../../../shared/components/ThumbNews";
 import SectionTitle from "../../../../shared/components/SectionTitle";
