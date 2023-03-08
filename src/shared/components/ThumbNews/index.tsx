@@ -34,8 +34,8 @@ const ThumbNews = ({
   }, [category]);
 
   useEffect(() => {
-    if (image?.length) setHasImage(true);
-  }, [image?.length]);
+    if (image) setHasImage(true);
+  }, [image]);
 
   return (
     <Container
@@ -44,8 +44,8 @@ const ThumbNews = ({
       onClick={() => window.open(url, "_blank")}
     >
       <div className="thumb-image">
-        {image ? (
-          <img src={image} alt="fill" />
+        {image && hasImage ? (
+          <img onError={() => setHasImage(false)} src={image} alt="fill" />
         ) : (
           icons.map(
             (icon, index) =>
@@ -86,7 +86,7 @@ const ThumbNews = ({
         )}
         {design === "horizontal" && (
           <>
-            <div>
+            <div className="info-content">
               <p className="publishedAt">Hoje às {hourDate} </p>
               <h4>{title}</h4>
               <p>{source}</p>

@@ -186,6 +186,14 @@ export const Container = styled.div<ContainerProps>`
         justify-content: space-between;
         flex-direction: column;
         height: 180px;
+
+        .info-content {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          width: 100%;
+        }
       }
 
       h4 {
