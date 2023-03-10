@@ -16,7 +16,7 @@ export const GlobalContext = createContext<GlobalContextProps>({
   news: [],
 });
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const currentDate = getCurrentDate();
 
   const res = await fetch(
