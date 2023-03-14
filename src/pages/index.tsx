@@ -16,7 +16,7 @@ export const GlobalContext = createContext<GlobalContextProps>({
   news: [],
 });
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const currentDate = getCurrentDate();
 
   const res = await fetch(
@@ -55,6 +55,9 @@ export default function Home({ news }: any) {
         <title>nanoticia</title>
         <meta name="title" content="nanoticia" />
         <link rel="icon" type="shortcut icon" href="/favicon.svg" />
+        <meta http-equiv="cache-control" content="no-cache"></meta>
+        <meta http-equiv="expires" content="0"></meta>
+        <meta http-equiv="pragma" content="no-cache"></meta>
       </Head>
 
       <GlobalContext.Provider value={{ news }}>

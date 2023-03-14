@@ -5,6 +5,14 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+
+  @media (max-width: 1366px) {
+    zoom: 80%;
+  }
+
+  @media (max-width: 1300px) {
+    zoom: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -26,7 +34,7 @@ export const Content = styled.div`
     padding: 0 1.5rem;
 
     h2.slogan {
-      font-size: 16px;  
+      font-size: 16px;
       margin: 1rem 0;
       text-align: center;
     }
