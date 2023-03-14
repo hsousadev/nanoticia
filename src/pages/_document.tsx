@@ -45,10 +45,6 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <script>
-          document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;
-          path=/;";
-        </script>
       </Html>
     );
   }
