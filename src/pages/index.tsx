@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 import Head from "next/head";
 
@@ -19,11 +19,11 @@ export const GlobalContext = createContext<GlobalContextProps>({
 export async function getStaticProps() {
   const currentDate = getCurrentDate();
 
-  const res = await fetch(
+  const response = await fetch(
     `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&sort=published_desc&countries=br&languages=pt&limit=60&date=${currentDate}`
   );
 
-  const data = await res.json();
+  const data = await response.json();
   const news = data.data;
 
   for (let i = 0; i < news.length; i++) {
@@ -43,8 +43,7 @@ export async function getStaticProps() {
     props: {
       news,
     },
-
-    revalidate: 2 * 3600, // a cada 2 horas
+    revalidate: 2 * 3600,
   };
 }
 
