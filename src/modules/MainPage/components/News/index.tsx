@@ -4,7 +4,9 @@ import { GlobalContext } from "../../../../pages/index";
 
 import SectionTitle from "../../../../shared/components/SectionTitle";
 import ThumbNews from "../../../../shared/components/ThumbNews";
+
 import useWindowSize from "../../../../shared/utils/useWindowSize";
+import useShuffleArrays from "../../../../shared/utils/useShuffleArrays";
 
 // import { data } from "../../../../shared/mock/newsData";
 
@@ -14,14 +16,16 @@ const News = () => {
   const { news } = useContext(GlobalContext);
 
   const windowSize = useWindowSize();
+
   const isNewsToResize = windowSize.windowWidth <= 1180;
 
   const [showSecondHalf, setShowSecondHalf] = useState(false);
 
-  const data = news;
+  // const data = [...generalNews, ...technologyNews, ...worldNews, ...sportNews];
 
-  const firstHalf = data.slice(5, 30);
-  const secondHalf = data.slice(31, 60);
+  const dataNews = news;
+
+  console.log("data", dataNews);
 
   return (
     <Container id="noticias">
@@ -30,34 +34,34 @@ const News = () => {
         title="Mais notícias"
       />
       <div className="news">
-        {firstHalf.map((news: any, index: any) => (
+        {dataNews.slice(5, 20).map((news: any, index: any) => (
           <ThumbNews
             key={index}
-            category={news.category}
+            title={news.title}
             description={news.description}
+            url={news.url}
+            image={news.image}
+            publishedAt={news.publishedAt}
             source={news.source}
             design={isNewsToResize ? "vertical" : "horizontal"}
-            image={news.image}
-            publishedAt={news.published_at}
-            title={news.title}
-            url={news.url}
           />
         ))}
 
         {showSecondHalf &&
-          secondHalf.map((news: any, index: any) => (
-            <ThumbNews
-              key={index}
-              category={news.category}
-              description={news.description}
-              source={news.source}
-              design={isNewsToResize ? "vertical" : "horizontal"}
-              image={news.image}
-              publishedAt={news.published_at}
-              title={news.title}
-              url={news.url}
-            />
-          ))}
+          dataNews
+            .slice(20)
+            .map((news: any, index: any) => (
+              <ThumbNews
+                key={index}
+                title={news.title}
+                description={news.description}
+                url={news.url}
+                image={news.image}
+                publishedAt={news.publishedAt}
+                source={news.source}
+                design={isNewsToResize ? "vertical" : "horizontal"}
+              />
+            ))}
       </div>
 
       <div className="see-more-news">

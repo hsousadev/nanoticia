@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Sparkle } from "phosphor-react";
 
 import { GlobalContext } from "../../../../pages/index";
-// import { data } from "../../../../shared/mock/newsData";
+import data from "../../../../shared/mock/allData";
 
 import ThumbNews from "../../../../shared/components/ThumbNews";
 import SectionTitle from "../../../../shared/components/SectionTitle";
@@ -27,40 +27,37 @@ const Highlights = () => {
       <div className="highlight">
         {!isHighlightToResize && (
           <ThumbNews
-            category={news[0].category}
+            title={news[0].title}
             description={news[0].description}
+            url={news[0].url}
+            image={news[0].image}
+            publishedAt={news[0].publishedAt}
             source={news[0].source}
             design="highlight"
-            image={news[0].image}
-            publishedAt={news[0].published_at}
-            title={news[0].title}
-            url={news[0].url}
           />
         )}
         <div className="secondary-highlights">
           {isHighlightToResize && (
             <ThumbNews
-              category={news[0].category}
+              title={news[0].title}
               description={news[0].description}
+              url={news[0].url}
+              image={news[0].image}
+              publishedAt={news[0].publishedAt}
               source={news[0].source}
               design="vertical"
-              image={news[0].image}
-              publishedAt={news[0].published_at}
-              title={news[0].title}
-              url={news[0].url}
             />
           )}
           {news.slice(1, 5).map((news: any, index: number) => (
             <ThumbNews
               key={index}
-              category={news.category}
+              title={news.title}
               description={news.description}
+              url={news.url}
+              image={news.image}
+              publishedAt={news.publishedAt}
               source={news.source}
               design="vertical"
-              image={news.image}
-              publishedAt={news.published_at}
-              title={news.title}
-              url={news.url}
             />
           ))}
         </div>

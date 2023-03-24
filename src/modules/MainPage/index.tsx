@@ -5,18 +5,8 @@ import Categories from "./components/Categories";
 import Highlights from "./components/Highlights";
 import News from "./components/News";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
 
 const MainPage = () => {
-  useEffect(() => {
-    const wasReloaded = sessionStorage.getItem("wasReloaded");
-
-    if (wasReloaded !== "true") {
-      sessionStorage.setItem("wasReloaded", "true");
-      window.location.reload();
-    }
-  }, []);
-
   return (
     <Container id="top">
       <Content>

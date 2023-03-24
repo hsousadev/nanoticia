@@ -1,37 +1,32 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { ThumbNewsProps } from "./interface";
 import { icons } from "./components/Icons";
 import { categories } from "./components/Categories";
 
+import DefaultThumnail from "../../assets/default-thumnail.svg";
+
 import { Container } from "./styles";
 
 const ThumbNews = ({
-  category,
+  title,
   description,
-  source,
-  design,
+  url,
   image,
   publishedAt,
-  title,
-  url,
+  source,
+  design,
 }: ThumbNewsProps) => {
   var date = new Date(publishedAt);
-  const hourDate = date.toLocaleTimeString("pt-BR", {
+  const formatDate = date.toLocaleTimeString("pt-BR", {
+    month: "long",
+    day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
   });
 
   const [hasImage, setHasImage] = useState(false);
-  const [newCategory, setNewCategory] = useState("");
-
-  useEffect(() => {
-    for (let i in categories) {
-      if (categories[i].type === category) {
-        setNewCategory(categories[i].name);
-      }
-    }
-  }, [category]);
 
   useEffect(() => {
     if (image) setHasImage(true);
@@ -47,16 +42,13 @@ const ThumbNews = ({
         {image && hasImage ? (
           <img onError={() => setHasImage(false)} src={image} alt="fill" />
         ) : (
-          icons.map(
-            (icon, index) =>
-              icon.name === category && <div key={index}>{icon.image}</div>
-          )
+          <Image src={DefaultThumnail} alt="fill"></Image>
         )}
       </div>
       <div className="info">
         {design === "highlight" && (
           <>
-            <h4>{source}</h4>
+            <h4>{source.name}</h4>
             <h2>{title}</h2>
             <p className="description">
               {description
@@ -65,38 +57,24 @@ const ThumbNews = ({
                 .replace(/&#8211;/i, "'")
                 .replace(/&#8216;/i, "'")}
             </p>
-            <p className="publishedAt">Hoje às {hourDate} </p>
+            <p className="publishedAt">{formatDate} </p>
           </>
         )}
         {design === "vertical" && (
           <>
             <div>
-              <p className="publishedAt">Hoje às {hourDate} </p>
+              <p className="publishedAt">{formatDate} </p>
               <h4>{title}</h4>
-              <p>{source}</p>
-            </div>
-            <div className="category">
-              <p>{newCategory}</p>
-              {icons.map(
-                (icon, index) =>
-                  icon.name === category && <div key={index}>{icon.image}</div>
-              )}
+              <p>{source.name}</p>
             </div>
           </>
         )}
         {design === "horizontal" && (
           <>
             <div className="info-content">
-              <p className="publishedAt">Hoje às {hourDate} </p>
+              <p className="publishedAt">{formatDate} </p>
               <h4>{title}</h4>
-              <p>{source}</p>
-            </div>
-            <div className="category">
-              <p>{newCategory}</p>
-              {icons.map(
-                (icon, index) =>
-                  icon.name === category && <div key={index}>{icon.image}</div>
-              )}
+              <p>{source.name}</p>
             </div>
           </>
         )}

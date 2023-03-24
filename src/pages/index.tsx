@@ -1,10 +1,7 @@
+import Head from "next/head";
 import { createContext, useState } from "react";
 
-import Head from "next/head";
-
 import MainPage from "../modules/MainPage";
-
-import { getCurrentDate } from "../shared/utils/getCurrentDate";
 
 interface GlobalContextProps {
   greenIconsSize?: number;
@@ -17,27 +14,65 @@ export const GlobalContext = createContext<GlobalContextProps>({
 });
 
 export async function getStaticProps() {
-  const currentDate = getCurrentDate();
+  function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
-  const response = await fetch(
-    `http://api.mediastack.com/v1/news?access_key=c11f1cfa6b15a3404988d05b493fe6d5&sort=published_desc&countries=br&languages=pt&limit=60&date=${currentDate}`
+  function shuffleArrays(array: Array<any>) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+
+  const getGeneralNews = await fetch(
+    `https://gnews.io/api/v4/top-headlines?category=general&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
   );
 
-  const data = await response.json();
-  const news = data.data;
+  const generalNewsData = await getGeneralNews.json();
+  const generalNews = generalNewsData.articles;
 
-  for (let i = 0; i < news.length; i++) {
-    if (!news[i].image) {
-      const response = await fetch(
-        `http://api.linkpreview.net/?key=b38036e059258735225c9fc893a5ff77&q=${news[i].url}`
-      );
-      const newImage = await response.json();
+  const getSportsNews = await fetch(
+    `https://gnews.io/api/v4/top-headlines?category=sports&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
+  );
 
-      if (newImage.image) {
-        news[i].image = newImage.image;
-      }
-    }
-  }
+  const sportNewsData = await getSportsNews.json();
+  const sportNews = sportNewsData.articles;
+
+  const getWorldNews = await fetch(
+    `https://gnews.io/api/v4/top-headlines?category=world&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
+  );
+
+  const worldNewsData = await getWorldNews.json();
+  const worldNews = worldNewsData.articles;
+
+  await sleep(2000);
+
+  const getTechnologyNews = await fetch(
+    `https://gnews.io/api/v4/top-headlines?category=technology&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
+  );
+
+  const technologyNewsData = await getTechnologyNews.json();
+  const technologyNews = technologyNewsData.articles;
+
+  const allNews = [
+    ...generalNews,
+    ...sportNews,
+    ...worldNews,
+    ...technologyNews,
+  ];
+
+  const news = shuffleArrays(allNews);
 
   return {
     props: {

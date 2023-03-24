@@ -1,10 +1,12 @@
 export interface ThumbNewsProps {
-  category?: string;
+  title: string;
   description: string;
-  source: string;
-  design?: any;
+  url: string;
   image: string | null;
   publishedAt: string;
-  title: string;
-  url: string;
+  source: {
+    name: string;
+    url: string;
+  };
+  design?: any;
 }
