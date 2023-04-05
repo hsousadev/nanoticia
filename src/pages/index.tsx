@@ -49,6 +49,8 @@ export async function getStaticProps() {
   const sportNewsData = await getSportsNews.json();
   const sportNews = sportNewsData.articles;
 
+  await sleep(2000);
+
   const getWorldNews = await fetch(
     `https://gnews.io/api/v4/top-headlines?category=world&apikey=1aa478fe04a57ba66875f776b176a1f5&lang=pt&country=br`
   );

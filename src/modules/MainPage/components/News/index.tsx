@@ -25,8 +25,6 @@ const News = () => {
 
   const dataNews = news;
 
-  console.log("data", dataNews);
-
   return (
     <Container id="noticias">
       <SectionTitle
