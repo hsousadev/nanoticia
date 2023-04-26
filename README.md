@@ -1,6 +1,7 @@
 # Nanotícia
 
-![nanoticia-cover](https://user-images.githubusercontent.com/54003876/230179614-5f7119ea-f196-4b6a-995b-a0b704bc392a.png)
+![Nanotícia-cover](https://user-images.githubusercontent.com/54003876/234693350-e9c7e550-f78b-484e-b67e-b92b02ff5d85.png)
+
 
 ## 🌐 Site Online: 
 https://nanoticia.vercel.app/
