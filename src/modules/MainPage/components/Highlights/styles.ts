@@ -22,8 +22,9 @@ export const Container = styled.div`
     .secondary-highlights {
       display: flex;
       align-items: flex-start;
-      justify-content: space-between;
+      justify-content: flex-start;
 
+      gap: 32px;
       width: 100%;
     }
   }

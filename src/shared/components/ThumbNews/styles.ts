@@ -69,8 +69,7 @@ export const Container = styled.div<ContainerProps>`
   }
 
   .info {
-    width: 100%;
-    max-width: 300px;
+    width: 50%;
 
     .category {
       display: flex;
@@ -110,7 +109,7 @@ export const Container = styled.div<ContainerProps>`
       -webkit-box-orient: vertical;
       margin-bottom: 2rem;
       line-height: 1rem;
-      color: black;
+      color: var(--GRAY);
     }
 
     p.publishedAt {
@@ -146,6 +145,8 @@ export const Container = styled.div<ContainerProps>`
   ${(props) =>
     props.design === "vertical" &&
     css`
+      width: 300px;
+
       @media (min-width: 500px) {
         .info {
           display: flex;

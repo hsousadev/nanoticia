@@ -6,8 +6,11 @@ export const Container = styled.div`
   justify-content: center;
 
   margin-bottom: 2rem;
-  font-size: 32px;
   gap: 0.5rem;
+
+  h2 {
+    margin: 0;
+  }
 
   @media (max-width: 500px) {
     margin-bottom: 1rem;

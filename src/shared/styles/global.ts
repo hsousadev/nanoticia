@@ -1,13 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
-  html,
-  body,
-  #__next {
-    margin: 0;
-    padding: 0;
-    font-family: "Inter", sans-serif;
-  }
+interface GlobalStylesProps {
+  isDarkTheme: boolean;
+}
+
+export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
 
   :root {
     --GREEN: #65D2AE;
@@ -15,6 +12,30 @@ export const GlobalStyles = createGlobalStyle`
     --DARK-BLUE: #213249;
     --GRAY: #828282;
     --LIGHT-GRAY: #d9d9d9;
+  }
+
+  ${(props) =>
+    props.isDarkTheme
+      ? css`
+          :root {
+            --BackgroundColor: #0f0f0f;
+            --Font-text: #fff;
+          }
+        `
+      : css`
+          :root {
+            --BackgroundColor: #fff;
+            --Font-text: #1e1e1e;
+          }
+        `}
+  
+  html,
+  body,
+  #__next {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background-color: var(--BackgroundColor);
   }
 
   mark {
@@ -33,10 +54,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
-  h1, h2, h3, h4, p {
+  h1, h2, h3, h4, p, #text {
     margin: 0;
     font-family: 'Inter';
     font-style: normal;
+    color: var(--Font-text);
   }
 
   h1 {

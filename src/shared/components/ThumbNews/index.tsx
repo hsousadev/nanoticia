@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import { ThumbNewsProps } from "./interface";
-import { icons } from "./components/Icons";
-import { categories } from "./components/Categories";
 
-import DefaultThumnail from "../../assets/default-thumnail.svg";
+import DefaultThumnail from "../../assets/thumbnails/default-thumnail.svg";
 
 import { Container } from "./styles";
 
@@ -48,16 +46,16 @@ const ThumbNews = ({
       <div className="info">
         {design === "highlight" && (
           <>
-            <h4>{source.name}</h4>
             <h2>{title}</h2>
             <p className="description">
               {description
-                .replace(/&#8220;/i, "'")
+                ?.replace(/&#8220;/i, "'")
                 .replace(/&#8221;/i, "'")
                 .replace(/&#8211;/i, "'")
                 .replace(/&#8216;/i, "'")}
             </p>
             <p className="publishedAt">{formatDate} </p>
+            <h4>{source?.name}</h4>
           </>
         )}
         {design === "vertical" && (

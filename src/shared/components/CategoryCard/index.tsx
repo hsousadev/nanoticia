@@ -1,9 +1,10 @@
-import React, { useEffect, useState, HTMLAttributes } from "react";
+import { useEffect, useState, HTMLAttributes, useContext } from "react";
 
 import useWindowSize from "../../utils/useWindowSize";
 import scrollToComment from "../../utils/smoothScroll";
 
 import { Container } from "./styles";
+import { GlobalContext } from "../../../pages/_app";
 
 interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
   icon: any;
@@ -11,6 +12,8 @@ interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const CategoryCard = ({ icon, title }: CategoryCardProps) => {
+  const { isDarkTheme } = useContext(GlobalContext);
+
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 500;
 
@@ -33,7 +36,7 @@ const CategoryCard = ({ icon, title }: CategoryCardProps) => {
   }
 
   return (
-    <Container onClick={() => handleClick()}>
+    <Container isDarkTheme={isDarkTheme} onClick={() => handleClick()}>
       {icon}
       <div>
         <p>{newTitle}</p>

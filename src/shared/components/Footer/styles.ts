@@ -1,8 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  errorWarningLayout?: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   width: 100%;
-  border-top: 1px solid var(--LIGHT-GRAY);
+
+  ${(props) =>
+    !props.errorWarningLayout &&
+    css`
+      border-top: 1px solid var(--LIGHT-GRAY);
+    `}
 
   .logo-and-return-top {
     display: flex;

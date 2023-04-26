@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { Newspaper, YoutubeLogo } from "phosphor-react";
 import { getFormatTodayDate } from "../../../../shared/utils/formatTodayDate";
@@ -8,14 +8,17 @@ import useWindowSize from "../../../../shared/utils/useWindowSize";
 import scrollToComment from "../../../../shared/utils/smoothScroll";
 
 import { Container } from "./styles";
+import { GlobalContext } from "../../../../pages/_app";
 
 const Categories = () => {
+  const { isDarkTheme } = useContext(GlobalContext);
+
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 500;
   const shouldShowDateAndTemperature = windowSize.windowWidth > 720;
 
   const [iconsSize, setIconSize] = useState(48);
-  const iconColor = "#213249";
+  const iconColor = isDarkTheme ? "#65D2AE" : "#213249";
 
   const [today, setToday] = useState<string>();
 

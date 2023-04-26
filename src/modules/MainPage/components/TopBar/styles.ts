@@ -3,18 +3,26 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 
   .date-temperature {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 4px;
 
     h4 {
       color: #828282;
     }
+  }
+
+  .button-themes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
   }
 
   @media (max-width: 720px) {

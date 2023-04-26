@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Container } from "./styles";
 
 interface SectionTitleProps {
@@ -11,7 +9,7 @@ const SectionTitle = ({ icon, title }: SectionTitleProps) => {
   return (
     <Container>
       {icon}
-      {title}
+      <h2>{title}</h2>
     </Container>
   );
 };

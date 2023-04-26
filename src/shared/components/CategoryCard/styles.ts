@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  isDarkTheme: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 
@@ -16,10 +20,16 @@ export const Container = styled.div`
   padding: 1.75rem 2.625rem;
   border-radius: 1rem;
 
-  background-color: var(--LIGHT-GREEN);
+  ${(props) =>
+    props.isDarkTheme
+      ? css`
+          background-color: rgba(101, 210, 174, 0.15);
+        `
+      : css`
+          background-color: var(--LIGHT-GREEN);
+        `}
 
   p {
-    color: var(--DARK-BLUE);
     white-space: nowrap;
   }
 

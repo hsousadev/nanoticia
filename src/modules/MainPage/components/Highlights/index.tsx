@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { Sparkle } from "phosphor-react";
 
-import { GlobalContext } from "../../../../pages/index";
-import data from "../../../../shared/mock/allData";
+import { NewsContext } from "../../../../pages/index";
 
 import ThumbNews from "../../../../shared/components/ThumbNews";
 import SectionTitle from "../../../../shared/components/SectionTitle";
@@ -11,7 +10,7 @@ import useWindowSize from "../../../../shared/utils/useWindowSize";
 import { Container } from "./styles";
 
 const Highlights = () => {
-  const { news } = useContext(GlobalContext);
+  const { news } = useContext(NewsContext);
 
   // const news = data;
 
@@ -48,7 +47,7 @@ const Highlights = () => {
               design="vertical"
             />
           )}
-          {news.slice(1, 5).map((news: any, index: number) => (
+          {news.slice(1, 4).map((news: any, index: number) => (
             <ThumbNews
               key={index}
               title={news.title}
