@@ -26,7 +26,7 @@ git clone https://github.com/justhenrique/nanoticia.git
 
 3. Acesse a pasta
 ```
-cd rick-and-morty-wiki
+cd nanoticia
 ```
 
 4. Instale as dependências
